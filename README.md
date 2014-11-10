@@ -5,14 +5,13 @@ Milestone 1: tbd
 ----------------
 ### Obligatory Features
 * Input GameID: done
-  * as part of config: added readConfig in config.c/config.h in anticipation of later to be added functionality
+  * as part of config: added readConfig in config.c/config.h in anticipation of to be added functionality
 * Constants: done
   * added in header file config.h for portability and modularity
 * Connection to Server: done
 * performConnection() Prolog: partially done
 * Gameserver output formatting: tbd
 * Error handling: done
-  * all errors in relation to connection and socket are handled
   * die() routine implemented in utils.c
 * Makefile: done
   * `make` compiles project

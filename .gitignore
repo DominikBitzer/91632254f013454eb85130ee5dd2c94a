@@ -1,6 +1,5 @@
 *.o
 *.a
-*.pdf
 *.out
 *.swp
 src/client
