@@ -3,13 +3,13 @@
 #include <stdio.h>
 #include <unistd.h>         // close()
 #include <sys/socket.h>     // socket
-#include <netdb.h>          // socket
-#include <arpa/inet.h>      // socket
+#include <netdb.h>          // getaddressinfo (for socket), freeaddrinfo, struct addrinfo
+#include <arpa/inet.h>      // socket, connect
 #include <sys/types.h>      // socket
 #include <string.h>         // memset()
-#include "config.h"
-#include "utils.h"
-#include "performConnection.h"
+#include "config.h"         // struct config
+#include "utils.h"          // die
+#include "performConnection.h"  // performConnection
 
 int main(int argc, char **argv) {
     
@@ -22,7 +22,7 @@ int main(int argc, char **argv) {
     struct addrinfo *servinfo;
 
     memset(&hints, 0, sizeof hints); 
-    hints.ai_family = AF_UNSPEC;
+    hints.ai_family = AF_UNSPEC;        // Specifies if IPv4 or IPv6 but AF_UNSPEC states arbitrarity of it
     hints.ai_socktype = SOCK_STREAM;
 
     if ((status = getaddrinfo(HOSTNAME, PORTNUMBER, &hints, &servinfo)) != 0) {
@@ -31,9 +31,9 @@ int main(int argc, char **argv) {
     }
 
     if((sock = socket(servinfo->ai_family, servinfo->ai_socktype, servinfo->ai_protocol)) < 0)
-        die("Could not create socket");
+        die("Could not create socket");     // die: Error message and exiting program with failure
    
-    if(connect(sock, servinfo->ai_addr, servinfo->ai_addrlen) < 0)
+    if(connect(sock, servinfo->ai_addr, servinfo->ai_addrlen) < 0) 
         die("Could not connect to server");
 
     // free the structure because socket is already created

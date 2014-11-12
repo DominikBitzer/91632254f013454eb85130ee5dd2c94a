@@ -1,26 +1,21 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <sys/types.h>
-#include <sys/socket.h>
+#include <sys/types.h>      // send, recv
+#include <sys/socket.h>     // send, recv
 #include "performConnection.h"
 #include "config.h"
 #include "utils.h"
 #define MAXBUF 1024
 
-int performConnection(int sockfd, struct config conf) {    
-    char gameid[14];
+int performConnection(int sockfd, struct config myConfig) {    
+    char gameid[15];                 //Because message to server: "ID xxxxxxxxxxx\n"
     char playerInput[MAXBUF];
 
     // GameID for testing: 4S693ELx2Wc
 
-    if(conf.gameid == NULL) {
-        fprintf(stderr, "You need to input a GameID!\n");
-        exit(EXIT_FAILURE);
-    }
-
     strcpy(gameid, "ID ");
-    strcat(gameid, conf.gameid);
+    strcat(gameid, myConfig.gameid);
     strcat(gameid, "\n");
     
     // PROLOG

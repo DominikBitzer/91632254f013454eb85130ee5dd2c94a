@@ -1,6 +1,8 @@
 SysPrak Gruppe23
 ====================================
 
+Link for socket explanation: http://beej.us/guide/bgnet/output/html/singlepage/bgnet.html
+
 Milestone 1: tbd
 ----------------
 ### Obligatory Features
@@ -10,6 +12,9 @@ Milestone 1: tbd
   * added in header file config.h for portability and modularity
 * Connection to Server: done
 * performConnection() Prolog: partially done
+  * Problem: Last receive in prolog are two lines ==> find logic behind it and adjust recvFromGameserver
+  * Add error-handling if numbytes == -1, because message was only partially send. Repeat Transmission?
+  * Integrate latency-handling in recvFromGameserver ==> do recvGromGameser while answer == none
 * Gameserver output formatting: tbd
 * Error handling: done
   * die() routine implemented in utils.c

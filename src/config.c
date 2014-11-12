@@ -12,7 +12,11 @@ struct config readConfig(int argc, char **argv) {
     int opt;
     FILE *fd = NULL;
 
-    while ((opt=getopt(argc, argv, "i:c:h")) != -1) {
+    if(argc == 1) {
+        printHelp(argv[0]);
+    }
+
+    while((opt=getopt(argc, argv, "i:c:h")) != -1) {
         switch (opt) {
             case 'i': // -i switch for gameid
                 if(strlen(optarg) != 11) {
@@ -35,6 +39,12 @@ struct config readConfig(int argc, char **argv) {
             default:
                 printHelp(argv[0]);
         }
+    }
+
+    if(thisConfig.gameid == NULL) {
+        fprintf(stderr, "You need to input a GameID!\n");
+        printHelp(argv[0]);
+        exit(EXIT_FAILURE);
     }
 
     return thisConfig;
