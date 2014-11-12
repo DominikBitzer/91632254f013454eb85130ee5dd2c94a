@@ -1,0 +1,52 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{moreverb}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{pifont}
+\usepackage{ngerman}
+\newcommand{\tick}{\ding{52}}
+\newcommand{\Nat}{\mathbb{N}}
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\pset}{\mathcal{P}}
+\renewcommand{\implies}{\Rightarrow}
+\renewcommand{\iff}{\Leftrightarrow}
+\title{\textbf{Protokoll SysPrak\\Gruppe 23}}
+\author{}
+\date{\today}
+\begin{document}
+
+\maketitle
+
+\section*{Stil}
+Beschluss, als Code-Stil einen modifizierten Java-Stil zu nutzen mit Eigenschaften, welche sich aus dem folgendem Code-Beispiel ergeben:
+\begin{verbatim}
+inf main() {
+ int i = 10;
+ int longNameVariable;
+ 
+ if(i == 1) {
+   // do things
+  } else {
+   // do other things
+  }
+  
+  for(int j = 0; j < i; j++) {
+   // do loopy things
+  }
+}
+\end{verbatim}
+Kommentare können in Deutsch, Englisch und Denglisch verfasst werden.\\
+Kommentar-Stil: Jeder Methode wird ein Mehrzeilenkommentar vorangestellt im doxygen-Stil mit Informationen zu Input, Handling und Output.
+Variablen- und Funktionsnamen sind in Englisch zu halten.\\
+\section*{Config und Versioning}
+Github-Versionierung des Projekts im Repo PPP12345/Schwulenverein-SanFrancisco-Gruppe23 mit forking und pull requests in klassischem Projekt-Stil.\\
+Genutzter Standard: C99.\\
+\section*{Good Practices}
+Nutzung von EXIT\_FAILURE und EXIT\_SUCCESS aus der stdlib.h.\\
+Keine Nutzung der stdbool.h, stattdessen int type.\\
+Hauptkommunikationsmittel ist die Mailingliste.\\
+Es wird nichts ins Repo repusht (u.U. mit merge request), was nicht lauffähig ist.\\
+FIRST PULL, THEN PUSH!\\
+Git commits sollen zusammenfassende Kommentare enthalten. Bei größeren Kommentaren soll eine Erklärung über die Mailingliste erfolgen.
+\end{document}
