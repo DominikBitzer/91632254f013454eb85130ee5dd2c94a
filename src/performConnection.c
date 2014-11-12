@@ -11,6 +11,13 @@
 int performConnection(int sockfd, struct config conf) {    
     char gameid[14];
 
+    // GameID for testing: 4S693ELx2Wc
+
+    if(conf.gameid == NULL) {
+        fprintf(stderr, "You need to input a GameID!\n");
+        exit(EXIT_FAILURE);
+    }
+
     strcpy(gameid, "ID ");
     strcat(gameid, conf.gameid);
     strcat(gameid, "\n");
@@ -22,7 +29,7 @@ int performConnection(int sockfd, struct config conf) {
     sendToGameserver(gameid, sockfd);
     recvFromGameserver(sockfd);
     recvFromGameserver(sockfd);
-    sendToGameserver("PLAYER 1\n", sockfd);
+    sendToGameserver("PLAYER 3\n", sockfd);
     recvFromGameserver(sockfd);
     recvFromGameserver(sockfd);
 
