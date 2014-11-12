@@ -10,6 +10,7 @@
 
 int performConnection(int sockfd, struct config conf) {    
     char gameid[14];
+    char playerInput[MAXBUF];
 
     // GameID for testing: 4S693ELx2Wc
 
@@ -32,6 +33,13 @@ int performConnection(int sockfd, struct config conf) {
     sendToGameserver("PLAYER \n", sockfd);
     recvFromGameserver(sockfd);
     recvFromGameserver(sockfd);
+
+    while(1) {
+        scanf("%s", playerInput);
+        strcat(playerInput, "\n");
+        sendToGameserver(playerInput, sockfd);
+        recvFromGameserver(sockfd);
+    }
 
     return EXIT_SUCCESS;
 }
