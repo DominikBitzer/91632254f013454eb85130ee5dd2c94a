@@ -30,6 +30,14 @@ Milestone 1: tbd
 
 Milestone 2: tbd
 ----------------
+* Parametrisierbare Konfiguration über eine Konfigurationsdatei
+  * client.conf auslesen, falls keine config Datei angegeben wurde	DONE
+  * struct config aktualisieren und Einstellungen einlesen:
+    - Hostname des Gameservers (nicht als char[] sondern wie htons())
+    - Portnummer des Gameservers
+    - Art des Spieles (hier: NMMorris)
+* Aufspaltung des Programmablaufs in zwei Prozesse – den Thinker und den Connector
+* Implementierung eines Shared-Memory-Bereichs für die Kommunikation der beiden Prozesse
 
 Milestone 3: tbd
 ----------------
