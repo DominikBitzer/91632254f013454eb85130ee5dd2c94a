@@ -37,6 +37,8 @@ Milestone 2: tbd
     - Portnummer des Gameservers
     - Art des Spieles (hier: NMMorris)
 * Aufspaltung des Programmablaufs in zwei Prozesse – den Thinker und den Connector
+  * Achtung: Es ist darauf zu achten, dass der Kindprozess nicht zu einem Waisen- oder Zombieprozess wird.
+  * Problem: Wie können wir verhindern, dass printf() mit dem Server aus parallelem Prozess kommuniziert?
 * Implementierung eines Shared-Memory-Bereichs für die Kommunikation der beiden Prozesse
 
 Milestone 3: tbd
