@@ -1,4 +1,5 @@
 #define _POSIX_C_SOURCE 2
+#define DEFAULT_CONFIG "client.conf"
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -41,10 +42,21 @@ struct config readConfig(int argc, char **argv) {
         }
     }
 
+    // if GameID is missing, abort
     if(thisConfig.gameid == NULL) {
         fprintf(stderr, "You need to input a GameID!\n");
         printHelp(argv[0]);
         exit(EXIT_FAILURE);
+    }
+
+    // if no config file was specified, use default config file (DEFAULT_CONFIG: client.conf)
+    if(thisConfig.conffile == NULL) {
+        if((fd = fopen(DEFAULT_CONFIG, "r")) == NULL) {
+            fprintf(stderr, "%s: ", DEFAULT_CONFIG);
+            perror(NULL);
+            exit(EXIT_FAILURE);
+        }
+        thisConfig.conffile = DEFAULT_CONFIG;
     }
 
     return thisConfig;
