@@ -8,7 +8,7 @@
 #include "config.h"
 #include "utils.h"
 
-#define LEN_BUFFER_SETTINGS 50
+#define LEN_BUFFER_SETTINGS 256
 
 struct config readConfig(int argc, char **argv) {
     
@@ -73,11 +73,7 @@ struct config parseConfig(struct config thisConfig) {
     char buf[LEN_BUFFER_SETTINGS];
     
     FILE *fd = NULL;
-    if((fd = fopen(optarg, "r")) == NULL) {
-        fprintf(stderr, "%s: ", optarg);
-        perror(NULL);
-        exit(EXIT_FAILURE);
-    }
+    fd = fopen(optarg, "r");
 
 // iterate over all lines of configfile and in each line save line in buf
     while (fgets(buf,LEN_BUFFER_SETTINGS,fd)) {
@@ -88,36 +84,24 @@ struct config parseConfig(struct config thisConfig) {
         }
 		
 		// check which option was specified in line that was just read out
-		if (strcmp(buf, "portnumber") == 0) 
-        {
+		if (strcmp(buf, "portnumber") == 0) {
             
         } 
         
-        else if (strcmp(buf, "hostname") == 0)
-        {
+        else if (strcmp(buf, "hostname") == 0) {
             
         }
         
-        else if (strcmp(buf, "gamekindname") == 0)
-        {
+        else if (strcmp(buf, "gamekindname") == 0) {
             
         } 
         
-        else /* default: */
-        {
+        else /* default: */ {
             
         }
-
-		
-		
 	}
-    
-    
-    
-    
-    
+	
     return thisConfig;
-    
     
 }
 

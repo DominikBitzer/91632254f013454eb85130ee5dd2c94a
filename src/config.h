@@ -12,7 +12,7 @@ struct config{
     char *conffile;
     char *hostname;
     char *gamekindname;
-    unsigned short portnumber;
+    unsigned short portnumber;      // unsigned short so htons()
     
 };
 
