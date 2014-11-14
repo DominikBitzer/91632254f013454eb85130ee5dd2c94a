@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 2 
 #include <unistd.h>         // close()
 #include <sys/socket.h>     // socket
 #include <netdb.h>          // getaddressinfo (for socket), freeaddrinfo, struct addrinfo
@@ -7,8 +8,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <sys/types.h>      // send, recv
-#include <sys/socket.h>     // send, recv
 #include "performConnection.h"
 #include "config.h"
 #include "utils.h"
