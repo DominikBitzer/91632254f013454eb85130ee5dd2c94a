@@ -10,6 +10,10 @@
 struct config{
     char *gameid;
     char *conffile;
+    char *hostname;
+    char *gamekindname;
+    unsigned short portnumber;
+    
 };
 
 /**
@@ -19,6 +23,14 @@ struct config{
  * @output  structure config
  */
 struct config readConfig(int argc, char **argv); 
+
+/**
+ * @author  Dominik Bitzer
+ * @brief   Read settings from a configuration file that is given in "config.conffile".
+ * @input   Element config, that contains a "config.conffile"
+ * @output  structure config
+ */
+struct config parseConfig(struct config thisConfig); 
 
 /**
  * @author  Simon Lackerbauer

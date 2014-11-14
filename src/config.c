@@ -4,8 +4,11 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+#include <ctype.h>      // tolower()
 #include "config.h"
 #include "utils.h"
+
+#define LEN_BUFFER_SETTINGS 50
 
 struct config readConfig(int argc, char **argv) {
     
@@ -61,6 +64,64 @@ struct config readConfig(int argc, char **argv) {
 
     return thisConfig;
 }
+
+
+// this function will parse the a configuration file that is given in the struct config element within config.conffile
+
+struct config parseConfig(struct config thisConfig) {
+
+    char buf[LEN_BUFFER_SETTINGS];
+    
+    FILE *fd = NULL;
+    if((fd = fopen(optarg, "r")) == NULL) {
+        fprintf(stderr, "%s: ", optarg);
+        perror(NULL);
+        exit(EXIT_FAILURE);
+    }
+
+// iterate over all lines of configfile and in each line save line in buf
+    while (fgets(buf,LEN_BUFFER_SETTINGS,fd)) {
+		
+		// convert string to lowercase
+		for(int i=0; buf[i]; i++) {
+            buf[i] = tolower(buf[i]);
+        }
+		
+		// check which option was specified in line that was just read out
+		if (strcmp(buf, "portnumber") == 0) 
+        {
+            
+        } 
+        
+        else if (strcmp(buf, "hostname") == 0)
+        {
+            
+        }
+        
+        else if (strcmp(buf, "gamekindname") == 0)
+        {
+            
+        } 
+        
+        else /* default: */
+        {
+            
+        }
+
+		
+		
+	}
+    
+    
+    
+    
+    
+    return thisConfig;
+    
+    
+}
+
+
 
 void printHelp(char *programName) {
     printf("Usage: \t%s [-i GAMEID] [-c CONFIGFILE]\n", programName);
