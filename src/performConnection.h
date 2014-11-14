@@ -4,6 +4,14 @@
 
 /**
  * @author  Simon Lackerbauer
+ * @brief   Initializes network communication
+ * @input   int argc, char **argv
+ * @output  EXIT_SUCCESS or EXIT_FAILURE
+ */
+void connector(int argc, char **argv);
+
+/**
+ * @author  Simon Lackerbauer
  * @brief   Handles all communication over the net
  * @input   file descriptor of socket
  * @output  EXIT_SUCCESS or EXIT_FAILURE
