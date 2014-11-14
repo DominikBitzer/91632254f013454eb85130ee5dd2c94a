@@ -10,22 +10,16 @@
 
 int main(int argc, char **argv) {
     
-    // use readConfig() from config.c to read all commandline arguments and all further configuration from a given config file
-
     // saving pid for fork() command
     pid_t pid;
-    
     if ((pid = fork()) == -1) {
         /* error with fork() */
         fprintf(stderr, "error when executing fork().\n");
-
     } else if (pid == 0) {
         /* connector: child process */
         connector(argc,argv);
-        
     } else {
         /* thinker: parent process */
-
         sleep(10000000);  // wait 1000 seconds so client/server can communicate
     }
 

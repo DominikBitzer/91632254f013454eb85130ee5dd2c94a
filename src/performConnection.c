@@ -15,6 +15,7 @@
 
 void connector(int argc, char **argv) {
     
+    // use readConfig() from config.c to read all commandline arguments and all further configuration from a given config file
     struct config myConfig = readConfig(argc, argv);
     
     // get server info with getaddrinfo(), create socket and connect
